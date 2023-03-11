@@ -74,3 +74,21 @@ describe("Gilded Rose Aged Brie quality", () => {
     expect(items[0].quality).to.equal(1);
   });
 });
+
+describe("Gilded Rose Backstage passes to a TAFKAL80ETC concert quality", () => {
+  it("11 0", () => {
+    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("10 0", () => {
+    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 10, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("5 0", () => {
+    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 5, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+});
