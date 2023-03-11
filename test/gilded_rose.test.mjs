@@ -53,9 +53,14 @@ describe("Gilded Rose foo quality", () => {
 });
 
 describe("Gilded Rose Aged Brie quality", () => {
-  it("should foo", () => {
+  it("0 0", () => {
     const gildedRose = new Shop([new Item("Aged Brie", 0, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(2);
+  });
+  it("0 49", () => {
+    const gildedRose = new Shop([new Item("Aged Brie", 0, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
   });
 });
