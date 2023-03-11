@@ -35,11 +35,11 @@ describe("Gilded Rose quali", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(0);
   });
-  // it("should foo with quality", () => {
-    // const gildedRose = new Shop([new Item("foo", 0, 1)]);
-    // const items = gildedRose.updateQuality();
-    // expect(items[0].name).to.equal("foo");
-  // });
+  it("should foo with quality", () => {
+    const gildedRose = new Shop([new Item("foo", 0, 1)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
   // it("should foo with s-10 q10", () => {
     // const gildedRose = new Shop([new Item("foo", -10, 10)]);
     // const items = gildedRose.updateQuality();
