@@ -63,4 +63,9 @@ describe("Gilded Rose Aged Brie quality", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(50);
   });
+  it("0 50", () => {
+    const gildedRose = new Shop([new Item("Aged Brie", 0, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
+  });
 });
