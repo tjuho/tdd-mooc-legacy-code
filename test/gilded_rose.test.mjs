@@ -122,4 +122,15 @@ describe("Sulfuras, Hand of Ragnaros quality", () => {
     expect(items[0].quality).to.equal(0);
   });
 
+  it("quality same if q < 1", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros quality", 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("quality same if q < 1", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros quality", 0, -1)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(-1);
+  });
+
 });
