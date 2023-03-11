@@ -41,7 +41,7 @@ describe("Gilded Rose foo quality", () => {
     expect(items[0].quality).to.equal(0);
   });
   it("should foo with s-10 q10", () => {
-    const gildedRose = new Shop([new Item("foo", -10, 10)]);
+    const gildedRose = new Shop([new Item("foo", -1, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(8);
   });
@@ -77,18 +77,40 @@ describe("Gilded Rose Aged Brie quality", () => {
 
 describe("Gilded Rose Backstage passes to a TAFKAL80ETC concert quality", () => {
   it("11 0", () => {
-    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(0);
+    expect(items[0].quality).to.equal(1);
   });
   it("10 0", () => {
-    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 10, 0)]);
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(0);
+    expect(items[0].quality).to.equal(2);
   });
   it("5 0", () => {
-    const gildedRose = new Shop([new Item("Gilded Rose Backstage passes to a TAFKAL80ETC concert", 5, 0)]);
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(0);
+    expect(items[0].quality).to.equal(3);
+  });
+  it("5 48", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
+  });
+  it("5 49", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
+  });
+  it("10 49", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
+  });
+  it("sellin<1 should result in 0 quality", () => {
+    for (let q=-50; q < 100; q++){
+      const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 50)]);
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).to.equal(0);      
+    }
   });
 });
