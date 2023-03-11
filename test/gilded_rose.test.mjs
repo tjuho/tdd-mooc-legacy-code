@@ -114,3 +114,12 @@ describe("Gilded Rose Backstage passes to a TAFKAL80ETC concert quality", () => 
     }
   });
 });
+
+describe("Sulfuras, Hand of Ragnaros quality", () => {
+  it("quality -1 if q > 0", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros quality", 0, 1)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+
+});
