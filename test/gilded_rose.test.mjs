@@ -29,7 +29,7 @@ describe("Gilded Rose coverage tests", () => {
   });
 });
 
-describe("Gilded Rose quali", () => {
+describe("Gilded Rose quality", () => {
   it("should foo", () => {
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
     const items = gildedRose.updateQuality();
@@ -44,6 +44,11 @@ describe("Gilded Rose quali", () => {
     const gildedRose = new Shop([new Item("foo", -10, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(8);
+  });
+  it("should foo with s1 q10", () => {
+    const gildedRose = new Shop([new Item("foo", 1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(9);
   });
   // it("should Aged Brie", () => {
     // const gildedRose = new Shop([new Item("Aged Brie", 0, 0)]);
