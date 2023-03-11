@@ -29,7 +29,7 @@ describe("Gilded Rose coverage tests", () => {
   });
 });
 
-describe("Gilded Rose quality", () => {
+describe("Gilded Rose foo quality", () => {
   it("should foo", () => {
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
     const items = gildedRose.updateQuality();
@@ -50,14 +50,12 @@ describe("Gilded Rose quality", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(9);
   });
-  // it("should Aged Brie", () => {
-    // const gildedRose = new Shop([new Item("Aged Brie", 0, 0)]);
-    // const items = gildedRose.updateQuality();
-    // expect(items[0].name).to.equal("Aged Brie");
-  // });
-  // it("should Backstage passes to a TAFKAL80ETC concert", () => {
-    // const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0)]);
-    // const items = gildedRose.updateQuality();
-    // expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
-  // });
+});
+
+describe("Gilded Rose Aged Brie quality", () => {
+  it("should foo", () => {
+    const gildedRose = new Shop([new Item("Aged Brie", 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(2);
+  });
 });
