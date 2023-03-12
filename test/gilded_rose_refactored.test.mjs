@@ -116,6 +116,11 @@ describe("Gilded Rose Backstage passes to a TAFKAL80ETC concert quality", () => 
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(50);
   });
+  it("2 0", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 2, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(3);
+  });
   it("sellin<1 should result in 0 quality", () => {
     for (let q=-50; q < 100; q++){
       const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 50)]);
