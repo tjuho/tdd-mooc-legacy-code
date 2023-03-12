@@ -40,7 +40,7 @@ export class Shop {
           this.items[i].quality -= 1;
         }
       }
-      if (this.items[i].quality > 50){
+      if (this.items[i].quality > 49){
         this.items[i].quality = 50;
       } else if (this.items[i].quality < 0){
         this.items[i].quality = 0;
