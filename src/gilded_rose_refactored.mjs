@@ -34,10 +34,14 @@ export class Shop {
           this.items[i].quality += 1;
         }
       } else {
+        let multiplier = 1;
+        if (this.items[i].name == "Conjured"){
+          multiplier = 2;
+        }
         if (this.items[i].sellIn < 0){
-          this.items[i].quality -= 2;
+          this.items[i].quality -= 2*multiplier;
         } else {
-          this.items[i].quality -= 1;
+          this.items[i].quality -= 1*multiplier;
         }
       }
       if (this.items[i].quality > 49){

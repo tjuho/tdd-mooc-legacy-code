@@ -37,6 +37,39 @@ describe("Gilded Rose foo quality", () => {
   });
 });
 
+describe("Gilded Rose Conjured quality", () => {
+  it("should Conjured", () => {
+    const gildedRose = new Shop([new Item("Conjured", 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("should Conjured with quality", () => {
+    const gildedRose = new Shop([new Item("Conjured", 0, 1)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("should Conjured with quality", () => {
+    const gildedRose = new Shop([new Item("Conjured", 0, 2)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
+  it("should Conjured with s-1 q10", () => {
+    const gildedRose = new Shop([new Item("Conjured", -1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(6);
+  });
+  it("should Conjured with s1 q10", () => {
+    const gildedRose = new Shop([new Item("Conjured", 1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(8);
+  });
+  it("should Conjured with s1 q50", () => {
+    const gildedRose = new Shop([new Item("Conjured", 1, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(48);
+  });
+});
+
 describe("Gilded Rose Aged Brie quality", () => {
   it("0 0", () => {
     const gildedRose = new Shop([new Item("Aged Brie", 0, 0)]);
@@ -141,6 +174,15 @@ describe("foo sellIn", () => {
   it("sellIn -1", () => {
     const s = 1
     const gildedRose = new Shop([new Item("foo", s, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].sellIn).to.equal(0);  
+  });
+});
+
+describe("Conjured sellIn", () => {
+  it("sellIn -1", () => {
+    const s = 1
+    const gildedRose = new Shop([new Item("Conjured", s, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].sellIn).to.equal(0);  
   });
