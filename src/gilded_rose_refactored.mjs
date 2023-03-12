@@ -42,7 +42,7 @@ export class Shop {
       }
       if (this.items[i].quality > 49){
         this.items[i].quality = 50;
-      } else if (this.items[i].quality < 0){
+      } else if (this.items[i].quality < 1){
         this.items[i].quality = 0;
       }
     }

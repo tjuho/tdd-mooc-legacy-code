@@ -30,6 +30,11 @@ describe("Gilded Rose foo quality", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(9);
   });
+  it("should foo with s1 q50", () => {
+    const gildedRose = new Shop([new Item("foo", 1, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(49);
+  });
 });
 
 describe("Gilded Rose Aged Brie quality", () => {
