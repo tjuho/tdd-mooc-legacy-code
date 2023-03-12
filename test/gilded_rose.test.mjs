@@ -76,6 +76,11 @@ describe("Gilded Rose Aged Brie quality", () => {
 });
 
 describe("Gilded Rose Backstage passes to a TAFKAL80ETC concert quality", () => {
+  it("0 0", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(0);
+  });
   it("11 0", () => {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
     const items = gildedRose.updateQuality();
@@ -122,6 +127,11 @@ describe("Sulfuras, Hand of Ragnaros", () => {
       const items = gildedRose.updateQuality();
       expect(items[0].quality).to.equal(q);
     }
+  });
+  it("quality test", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -10, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(10);  
   });
   it("sellIn remains same", () => {
     for (let s=-10; s < 50; s++){
